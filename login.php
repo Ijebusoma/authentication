@@ -1,6 +1,6 @@
-<?php
-<include_once "db.php";
-echo "<p> You have been successfully registered, please login </p>";
+
+
+
 <html>
 <head>
 <body>
@@ -14,4 +14,3 @@ echo "<p> You have been successfully registered, please login </p>";
 
 </head>
 </html>
- ?>

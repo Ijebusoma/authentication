@@ -1,22 +1,26 @@
 <?php
-<include_once "db.php";
+include_once "db.php";
 if (isset($_POST['submit'])) //check if user has clicked submit
 
 {
+
   //Fetch all data from the form";
 $username = $_POST['username'];
-$password = $_POST['password'];
-$query = "SELECT password FROM user_profile WHERE username = '$username' ";
-$dbpwd = mysqli_query($dbconn,$query);
-//encrypt password
-$encpassword = hash('md5', '$password');
-//compare encrypted password with password from db
-if($dbpwd===$encpassword)
+$password = hash('md5', $_POST['password']);
+
+$query = "SELECT * FROM user_profile WHERE username = '$username' AND password = '$password' ";
+$result = mysqli_query($dbconn, $query);
+$count = mysqli_num_rows($result); //Count the rows received
+
+
+
+if($count == 1) //Check if a row with that data exists in the db
 {
-  //check if username matches before loggin in
-  //decrypt password
-  //check for password matching
-  if
+echo "successfully logged in";
+    }else {
+  echo "invalid username or password";
 }
+}
+
 
  ?>

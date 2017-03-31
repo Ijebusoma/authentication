@@ -17,6 +17,7 @@ if (!empty($email) && !empty($password) && !empty($username)) // check if any fi
 
 
 {
+  // create variable to store encrypted password before storing into DB
 
 $query = "INSERT into user_profile (username, email, password) VALUES ('$username',  '$email', md5('$password'))";
  $result = mysqli_query($dbconn, $query);
@@ -24,7 +25,7 @@ $query = "INSERT into user_profile (username, email, password) VALUES ('$usernam
 
 {
   echo "you have been successfully registered, you can now login";
-  header("Location:login.php");
+  header("Location:home.php");
 }else {
   echo "There was an error while inserting, please try again";
 }
