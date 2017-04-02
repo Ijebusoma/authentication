@@ -18,8 +18,8 @@ $count = mysqli_num_rows($result); //Count the rows received
 if($count == 1) //Check if a row with that data exists in the db
 {
 echo "successfully logged in";
- session_register("myusername");
- $_SESSION['login_user'] = $myusername;
+
+ $_SESSION['login_user'] = $username;
     }else {
   echo "invalid username or password";
 }
